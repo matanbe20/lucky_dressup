@@ -63,3 +63,8 @@ renderer.setAnimationLoop(() => {
 });
 
 goTo(params.get('scene') === 'room' ? 'room' : 'wheel', { theme: params.get('theme') || 'moon' });
+
+// Installable app (PWA): register the offline service worker.
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+}

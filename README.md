@@ -1,4 +1,6 @@
-# Lucky Dressup
+# גלגל הלבשה (Lucky Dressup)
+
+Play: https://matanbe20.github.io/lucky_dressup/ (installable as an app: "Add to Home Screen" / "Install").
 
 Cartoony kids' game in Three.js (no build step; Three.js loads from a CDN via an import map).
 
@@ -37,3 +39,9 @@ node serve.mjs   # → http://localhost:5180
 - `?force=spider` (or `heart`, `sun`, …) makes the wheel land on that item.
 - `?slow=0.25` runs the game in slow motion.
 - `?scene=room&theme=moon` (or `sun`, `rainbow`, `star`, `heart`, `flower`) opens a dress-up room directly.
+
+## App (PWA)
+- `manifest.webmanifest`: name "גלגל הלבשה", icons in `icons/`.
+- `sw.js`: service worker (network first, offline fallback). Bump `CACHE` when changing the file list.
+- Icons are drawn from the game's own artwork by `tools/make-icons.html`. To regenerate, serve the project with a
+  small server that accepts `POST /save?name=icons/x.png` (base64 body) and open `tools/make-icons.html?save`.
